@@ -6,20 +6,20 @@ def background(image_path):
         encoded=base64.b64encode(f.read()).decode()
     st.markdown(
         f'<style> html, body,[data-testid="stAppViewContainer"]{{height: 100%; width: 100%; margin: 0; padding: 0;}} .stApp{{background-image:url("data:image/jpg;base64,{encoded}");background-repeat:no-repeat; background-size:cover; background-position:center; min-height:100vh; min-width:100vw;}} </style>',unsafe_allow_html=True)
-background('images/mars.jpeg')
+background('images/uranous.jpeg')
 
 
-st.markdown('<p style="text-align:center; padding:6px; background-color:black">Students are learning the same lesson, but some finish faster than others. What is the fairest choice?</p>',unsafe_allow_html=True)
+st.markdown('<p style="text-align:center; padding:6px; background-color:black">Students are studying for a test. What is the best way to help everyone learn?</p>',unsafe_allow_html=True)
 
 if "clicked" not in st.session_state:
      st.session_state.clicked=None
 if "done_clicked" not in st.session_state:
     st.session_state.done_clicked = False
 option=[
-    ("Everyone must finish at the same speed.", "red", "This option shows gender bias because its states only boys are technical."),
-    ("Only fast learners get extra activities.", "red", "This option is gender bias free because it includes anyone."),
-    ("Give help and extra time when needed.","green", "This option is gender bias free because its states boys and girls as equals."),
-    ("Let students show learning in different ways.", "green", "This option is gender bias free because its includes anyone.")
+    ("Only give practice tests.", "red", "This option shows gender bias because its states only boys are technical."),
+    ("Only assign reading homework", "red", "This option is gender bias free because it includes anyone."),
+    ("Expect all students to study the same way.","red", "This option is gender bias free because its states boys and girls as equals."),
+    ("Let students choose how they study (flashcards, drawing, talking).", "green", "This option is gender bias free because its includes anyone.")
 ]
 
 for i, (text, color, message) in enumerate(option):
@@ -47,9 +47,5 @@ if st.session_state.done_clicked:
         # Reset session state before switching pages
         st.session_state.clicked = None
         st.session_state.done_clicked = False
-        st.switch_page("pages/level3_q2.py")
-
-
-
-
+        st.switch_page("pages/level5_q1.py")
 

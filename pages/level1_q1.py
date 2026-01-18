@@ -6,14 +6,15 @@ def background(image_path):
         encoded=base64.b64encode(f.read()).decode()
     st.markdown(
         f'<style> html, body,[data-testid="stAppViewContainer"]{{height: 100%; width: 100%; margin: 0; padding: 0;}} .stApp{{background-image:url("data:image/jpg;base64,{encoded}");background-repeat:no-repeat; background-size:cover; background-position:center; min-height:100vh; min-width:100vw;}} </style>',unsafe_allow_html=True)
-background('images/earth.jpeg')
+background('images/mercury.jpeg')
 
 
 st.markdown('<p style="text-align:center; padding:6px; background-color:black">Your teacher is choosing students for the robotics club. Who should be allowed to join?</p>',unsafe_allow_html=True)
 
 if "clicked" not in st.session_state:
      st.session_state.clicked=None
-
+if "done_clicked" not in st.session_state:
+    st.session_state.done_clicked = False
 option=[
     ("Only boys because robots are technical.", "red", "This option shows gender bias because its states only boys are technical."),
     ("Anyone who likes building things.", "green", "This option is gender bias free because it includes anyone."),
@@ -32,16 +33,20 @@ for i, (text, color, message) in enumerate(option):
                 st.session_state.clicked=i
                 st.rerun()
 
-if "done_clicked" not in st.session_state:
-    st.session_state.done_clicked=False
-
 if st.button("Done"):
-    st.session_state.done_clicked=True
+    st.session_state.done_clicked = True
     st.rerun()
+
 if st.session_state.done_clicked:
-    st.markdown('<p style="text-align: center; color:black; font-weight:bold;" > Bias lesson: Interests are not based on gender.</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<p style="text-align:center; color:white; font-weight:bold; background-color:rgba(0,0,0,0.7); padding:1rem; border-radius:5px;">Bias lesson: Interests are not based on gender.</p>',
+        unsafe_allow_html=True
+    )
 
     if st.button("Next"):
+        # Reset session state before switching pages
+        st.session_state.clicked = None
+        st.session_state.done_clicked = False
         st.switch_page("pages/level1_q2.py")
 
 
