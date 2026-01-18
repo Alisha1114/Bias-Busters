@@ -24,8 +24,13 @@ for i, (text, color, message) in enumerate(option):
                 st.session_state.clicked=i
                 st.rerun()
 
-if "done_clicked"
+if "done_clicked" not in st.session_state:
+    st.session_state.done_clicked=False
+
 if st.button("Done"):
+    st.session_state.done_clicked=True
+    st.rerun()
+if st.session_state.done_clicked:
     st.markdown('<p style=text-align: center> Bias lesson: Interests are not based on gender.</p>', unsafe_allow_html=True)
 
     if st.button("Next"):
@@ -38,3 +43,4 @@ if st.button("Done"):
 
 
 # Bias lesson: Interests are not based on gender.
+#teal brown purple orange
