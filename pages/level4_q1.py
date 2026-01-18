@@ -16,10 +16,10 @@ if "clicked" not in st.session_state:
 if "done_clicked" not in st.session_state:
     st.session_state.done_clicked = False
 option=[
-    ("Only explain by talking.", "red", "This option shows gender bias because its states only boys are technical."),
-    ("Use videos, drawing, talking, and hands-on work.", "green", "This option is gender bias free because it includes anyone."),
-    ("Teach one way because everyone learns the same.","red", "This option is gender bias free because its states boys and girls as equals."),
-    ("Only give reading worksheets.", "red", "This option is gender bias free because its includes anyone.")
+    ("Only explain by talking.", "red", "This option shows learning style bias because its ignores some students needs."),
+    ("Use videos, drawing, talking, and hands-on work.", "green", "This option is learning style bias bias free because it includes everyone's style of learning."),
+    ("Teach one way because everyone learns the same.","red", "This option is learning style bias free because it is very limited."),
+    ("Only give reading worksheets.", "red", "This option is learning style bias because it does not include everyone's preferences.")
 ]
 
 for i, (text, color, message) in enumerate(option):

@@ -16,10 +16,10 @@ if "clicked" not in st.session_state:
 if "done_clicked" not in st.session_state:
     st.session_state.done_clicked = False
 option=[
-    ("Be curious and respectful.", "green", "This option is gender bias free because it includes anyone."),
-    ("Make fun of it because it looks different .", "red", "This option shows gender bias because its states only boys are technical."),
-    ("Accept that different foods are normal.","green", "This option is gender bias free because its states boys and girls as equals."),
-    ("Ask polite questions if allowed .", "green", "This option is gender bias free because its includes anyone.")
+    ("Be curious and respectful.", "green", "This option is race bias free."),
+    ("Make fun of it because it looks different .", "red", "This option shows race bias because someone is being made fun because of their culture."),
+    ("Accept that different foods are normal.","green", "This option is race bias free because its states acceptance."),
+    ("Ask polite questions if allowed .", "green", "This option is race bias free because it shows politeness.")
 ]
 
 for i, (text, color, message) in enumerate(option):
@@ -47,5 +47,5 @@ if st.session_state.done_clicked:
         # Reset session state before switching pages
         st.session_state.clicked = None
         st.session_state.done_clicked = False
-        st.switch_page("pages/level3_q1.py")
+        st.switch_page("pages/level_3.py")
 

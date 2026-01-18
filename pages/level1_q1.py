@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 
+
 def background(image_path):
     with open (image_path,"rb") as f:
         encoded=base64.b64encode(f.read()).decode()
@@ -16,10 +17,10 @@ if "clicked" not in st.session_state:
 if "done_clicked" not in st.session_state:
     st.session_state.done_clicked = False
 option=[
-    ("Only boys because robots are technical.", "red", "This option shows gender bias because its states only boys are technical."),
-    ("Anyone who likes building things.", "green", "This option is gender bias free because it includes anyone."),
-    ("Girls and boys who are interested.","green", "This option is gender bias free because its states boys and girls as equals."),
-    ("Any student who wants to learn about robots.", "green", "This option is gender bias free because its includes anyone.")
+    ("Only boys because robots are technical.", "red", "This option shows gender bias because..."),
+    ("Anyone who likes building things.", "green", "This option is gender bias free because..."),
+    ("Girls and boys who are interested.","green", "This option is gender bias free because..."),
+    ("Any student who wants to learn about robots.", "green", "This option is gender bias free because...")
 ]
 
 for i, (text, color, message) in enumerate(option):
