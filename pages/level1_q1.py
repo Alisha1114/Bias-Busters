@@ -1,7 +1,15 @@
 import streamlit as st
+import base64
+
+def background(image_path):
+    with open (image_path,"rb") as f:
+        encoded=base64.b64encode(f.read()).decode()
+    st.markdown(
+        f'<style> html, body,[data-testid="stAppViewContainer"]{{height: 100%; width: 100%; margin: 0; padding: 0;}} .stApp{{background-image:url("data:image/jpg;base64,{encoded}");background-repeat:no-repeat; background-size:cover; background-position:center; min-height:100vh; min-width:100vw;}} </style>',unsafe_allow_html=True)
+background('images/earth.jpeg')
 
 
-st.markdown('<p style="text-align:center;">Your teacher is choosing students for the robotics club. Who should be allowed to join?</p>',unsafe_allow_html=True)
+st.markdown('<p style="text-align:center; padding:6px; background-color:black">Your teacher is choosing students for the robotics club. Who should be allowed to join?</p>',unsafe_allow_html=True)
 
 if "clicked" not in st.session_state:
      st.session_state.clicked=None
@@ -31,7 +39,7 @@ if st.button("Done"):
     st.session_state.done_clicked=True
     st.rerun()
 if st.session_state.done_clicked:
-    st.markdown('<p style=text-align: center> Bias lesson: Interests are not based on gender.</p>', unsafe_allow_html=True)
+    st.markdown('<p style="text-align: center; color:black; font-weight:bold;" > Bias lesson: Interests are not based on gender.</p>', unsafe_allow_html=True)
 
     if st.button("Next"):
         st.switch_page("pages/level1_q2.py")
